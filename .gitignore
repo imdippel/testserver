@@ -1,0 +1,1 @@
+db.sqlite3  $ git rm --cached db.sqlite3 rm 'db.sqlite3' $ git commit -m "Start ignoring db.sqlite3"
