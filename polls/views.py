@@ -12,7 +12,7 @@ class IndexView(generic.ListView):
 
 	def get_queryset(self):
 		qset = Question.objects
-		return qset.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
+		return qset.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
 
 class DetailView(generic.DetailView):
 	model = Question
@@ -37,4 +37,4 @@ def vote(request, question_id):
 	else:
 		selected_choice.votes += 1
 		selected_choice.save()
-		return HttpResponseRedirect(reverse('polls:results', args=(question.id)))
+		return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
